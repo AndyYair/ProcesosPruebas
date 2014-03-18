@@ -158,17 +158,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${reglaInstance?.procesos}">
-				<li class="fieldcontain">
-					<span id="procesos-label" class="property-label"><g:message code="regla.procesos.label" default="Procesos" /></span>
-					
-						<g:each in="${reglaInstance.procesos}" var="p">
-						<span class="property-value" aria-labelledby="procesos-label"><g:link controller="proceso" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${reglaInstance?.valorAsignado1}">
 				<li class="fieldcontain">
 					<span id="valorAsignado1-label" class="property-label"><g:message code="regla.valorAsignado1.label" default="Valor Asignado1" /></span>

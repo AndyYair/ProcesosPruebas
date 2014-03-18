@@ -18,14 +18,6 @@
 	<g:textField name="nomenclatura" value="${procesoInstance?.nomenclatura}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: procesoInstance, field: 'reglas', 'error')} ">
-	<label for="reglas">
-		<g:message code="proceso.reglas.label" default="Reglas" />
-		
-	</label>
-	
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: procesoInstance, field: 'status', 'error')} ">
 	<label for="status">
 		<g:message code="proceso.status.label" default="Status" />

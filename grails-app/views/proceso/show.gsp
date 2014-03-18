@@ -41,17 +41,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${procesoInstance?.reglas}">
-				<li class="fieldcontain">
-					<span id="reglas-label" class="property-label"><g:message code="proceso.reglas.label" default="Reglas" /></span>
-					
-						<g:each in="${procesoInstance.reglas}" var="r">
-						<span class="property-value" aria-labelledby="reglas-label"><g:link controller="regla" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${procesoInstance?.status}">
 				<li class="fieldcontain">
 					<span id="status-label" class="property-label"><g:message code="proceso.status.label" default="Status" /></span>

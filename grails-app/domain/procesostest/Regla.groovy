@@ -4,7 +4,7 @@ import procesostest.Proceso
 
 class Regla {
     
-   static hasMany = [procesos:Proceso] 
+  
    static scallfold = true
     
     String descripcion
