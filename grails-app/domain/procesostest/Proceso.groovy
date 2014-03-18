@@ -1,17 +1,15 @@
 package procesostest
 
-import procesostest.Regla
+import procesostest.*
 
 class Proceso {
-    
-    static hasMany = [reglas:Regla]
-    static belongsTo = Regla
-    
+   
     static scallfold = true
     
     String descripcion
     String nomenclatura
     String status
+   
 
     static constraints = {
     }
