@@ -1,6 +1,6 @@
 package procesostest
 
-import flujo.Proceso
+import procesostest.Proceso
 
 class Regla {
     
