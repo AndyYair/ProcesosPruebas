@@ -1,31 +1,33 @@
-dataSource {
-    pooled = true
-    driverClassName = "org.h2.Driver"
-    username = "sa"
-    password = ""
-}
-hibernate {
-    cache.use_second_level_cache = true
-    cache.use_query_cache = false
-    cache.region.factory_class = 'net.sf.ehcache.hibernate.EhCacheRegionFactory'
-}
-
-dataSource {
-        pooled = false
-        driverClassName = "oracle.jdbc.driver.OracleDriver"
-        username = "sunset"
-        password = "sun030201sir"   //in grails 1.1, this can be encrypted
-}
+//dataSource {
+//    pooled = true
+//    driverClassName = "org.h2.Driver"
+//    username = "sa"
+//    password = ""
+//}
+//hibernate {
+//    cache.use_second_level_cache = true
+//    cache.use_query_cache = false
+//    cache.region.factory_class = 'net.sf.ehcache.hibernate.EhCacheRegionFactory'
+//}
 
 environments {
-        development {
+    
+    development {
         dataSource {
-          //loggingSql=true
-          dialect=org.hibernate.dialect.OracleDialect
-          dbCreate = "create-drop" // one of 'create', 'create-drop','update'
-          url = 'jdbc:oracle:thin:@10.194.18.59:1521:SUNSET'
-                }
+            dialect = org.hibernate.dialect.OracleDialect
+            driverClassName = 'oracle.jdbc.OracleDriver'
+            //dbCreate = 'update'
+            username = 'sunset'
+            password = 'sun010302sir'
+            //url = 'jdbc:oracle:thin:@10.194.15.203:1521:SUNSET'
+            url = 'jdbc:oracle:thin:@10.194.18.59:1521:SUNSET'
+            //readOnly = false
+            //logSql = true
+            //logSql = false
+
         }
+    
+        
 // environment specific settings
 //environments {
 //    development {
@@ -55,6 +57,7 @@ environments {
                testOnReturn=true
                validationQuery="SELECT 1"
             }
+        }
         }
     }
 }
