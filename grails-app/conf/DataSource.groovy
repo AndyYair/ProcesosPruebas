@@ -9,14 +9,31 @@ hibernate {
     cache.use_query_cache = false
     cache.region.factory_class = 'net.sf.ehcache.hibernate.EhCacheRegionFactory'
 }
-// environment specific settings
+
+dataSource {
+        pooled = false
+        driverClassName = "oracle.jdbc.driver.OracleDriver"
+        username = "sunset"
+        password = "sun030201sir"   //in grails 1.1, this can be encrypted
+}
+
 environments {
-    development {
+        development {
         dataSource {
-            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+          //loggingSql=true
+          dialect=org.hibernate.dialect.OracleDialect
+          dbCreate = "create-drop" // one of 'create', 'create-drop','update'
+          url = 'jdbc:oracle:thin:@10.194.18.59:1521:SUNSET'
+                }
         }
-    }
+// environment specific settings
+//environments {
+//    development {
+//        dataSource {
+//            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
+//            url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+//        }
+//    }
     test {
         dataSource {
             dbCreate = "update"
