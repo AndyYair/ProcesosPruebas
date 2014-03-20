@@ -21,8 +21,9 @@ class SecFlujoController {
 
     def save() {
         //def secFlujoInstance = new SecFlujo(params)
-        //params.nomenclatura = 'PROM'+params.idpromotora+'_COMP'+params.idcompania
-        def secFlujoInstance = new SecFlujo(getAll(params))
+        //def secFlujoInstance = new SecFlujo(list(params.list('secuencia.id')))
+        def secFlujoInstance = new SecFlujo(findAll(params.list('secuencia.id')))
+        secFlujoInstance.set
         if (!secFlujoInstance.save(flush: true)) {
             render(view: "create", model: [secFlujoInstance: secFlujoInstance])
             return
