@@ -26,6 +26,8 @@
 					
 						<g:sortableColumn property="descripcion" title="${message(code: 'proceso.descripcion.label', default: 'Descripcion')}" />
 					
+						<th><g:message code="proceso.fid.label" default="Fid" /></th>
+					
 						<g:sortableColumn property="nomenclatura" title="${message(code: 'proceso.nomenclatura.label', default: 'Nomenclatura')}" />
 					
 						<g:sortableColumn property="status" title="${message(code: 'proceso.status.label', default: 'Status')}" />
@@ -37,6 +39,8 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td><g:link action="show" id="${procesoInstance.id}">${fieldValue(bean: procesoInstance, field: "descripcion")}</g:link></td>
+					
+						<td>${fieldValue(bean: procesoInstance, field: "fid")}</td>
 					
 						<td>${fieldValue(bean: procesoInstance, field: "nomenclatura")}</td>
 					

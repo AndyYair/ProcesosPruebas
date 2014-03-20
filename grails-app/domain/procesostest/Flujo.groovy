@@ -1,13 +1,17 @@
 package procesostest
 
+import procesostest.Promotora
+import procesostest.Compania
+
 class Flujo {
     
-    static scallfold = true
+
     
-    String fid
-    String pid
-    String id
-    String secuenciapid
+    String      id
+    String      descripcion
+    Promotora   idpromotora
+    Compania    idcompania
+  
 
     static constraints = {
     }

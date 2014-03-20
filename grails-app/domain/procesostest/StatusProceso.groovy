@@ -2,9 +2,9 @@ package procesostest
 
 class StatusProceso {
     
-    static scallfold = true
-    
-    String descripcion
+   
+    int     id
+    String  descripcion
 
     static constraints = {
     }

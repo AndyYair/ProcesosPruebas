@@ -6,9 +6,11 @@ class Proceso {
    
     static scallfold = true
     
-    String descripcion
-    String nomenclatura
-    String status
+    String  id
+    String  descripcion
+    String  nomenclatura
+    String  status
+    Flujo   fid
    
 
     static constraints = {

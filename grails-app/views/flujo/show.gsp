@@ -23,11 +23,29 @@
 			</g:if>
 			<ol class="property-list flujo">
 			
-				<g:if test="${flujoInstance?.secuenciapid}">
+				<g:if test="${flujoInstance?.descripcion}">
 				<li class="fieldcontain">
-					<span id="secuenciapid-label" class="property-label"><g:message code="flujo.secuenciapid.label" default="Secuenciapid" /></span>
+					<span id="descripcion-label" class="property-label"><g:message code="flujo.descripcion.label" default="Descripcion" /></span>
 					
-						<span class="property-value" aria-labelledby="secuenciapid-label"><g:fieldValue bean="${flujoInstance}" field="secuenciapid"/></span>
+						<span class="property-value" aria-labelledby="descripcion-label"><g:fieldValue bean="${flujoInstance}" field="descripcion"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${flujoInstance?.idcompania}">
+				<li class="fieldcontain">
+					<span id="idcompania-label" class="property-label"><g:message code="flujo.idcompania.label" default="Idcompania" /></span>
+					
+						<span class="property-value" aria-labelledby="idcompania-label"><g:link controller="compania" action="show" id="${flujoInstance?.idcompania?.id}">${flujoInstance?.idcompania?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${flujoInstance?.idpromotora}">
+				<li class="fieldcontain">
+					<span id="idpromotora-label" class="property-label"><g:message code="flujo.idpromotora.label" default="Idpromotora" /></span>
+					
+						<span class="property-value" aria-labelledby="idpromotora-label"><g:link controller="promotora" action="show" id="${flujoInstance?.idpromotora?.id}">${flujoInstance?.idpromotora?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

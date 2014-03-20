@@ -10,6 +10,14 @@
 	<g:textField name="descripcion" value="${procesoInstance?.descripcion}"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: procesoInstance, field: 'fid', 'error')} required">
+	<label for="fid">
+		<g:message code="proceso.fid.label" default="Fid" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="fid" name="fid.id" from="${procesostest.Flujo.list()}" optionKey="id" required="" value="${procesoInstance?.fid?.id}" class="many-to-one"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: procesoInstance, field: 'nomenclatura', 'error')} ">
 	<label for="nomenclatura">
 		<g:message code="proceso.nomenclatura.label" default="Nomenclatura" />

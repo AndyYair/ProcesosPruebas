@@ -24,7 +24,11 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="secuenciapid" title="${message(code: 'flujo.secuenciapid.label', default: 'Secuenciapid')}" />
+						<g:sortableColumn property="descripcion" title="${message(code: 'flujo.descripcion.label', default: 'Descripcion')}" />
+					
+						<th><g:message code="flujo.idcompania.label" default="Idcompania" /></th>
+					
+						<th><g:message code="flujo.idpromotora.label" default="Idpromotora" /></th>
 					
 					</tr>
 				</thead>
@@ -32,7 +36,11 @@
 				<g:each in="${flujoInstanceList}" status="i" var="flujoInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${flujoInstance.id}">${fieldValue(bean: flujoInstance, field: "secuenciapid")}</g:link></td>
+						<td><g:link action="show" id="${flujoInstance.id}">${fieldValue(bean: flujoInstance, field: "descripcion")}</g:link></td>
+					
+						<td>${fieldValue(bean: flujoInstance, field: "idcompania")}</td>
+					
+						<td>${fieldValue(bean: flujoInstance, field: "idpromotora")}</td>
 					
 					</tr>
 				</g:each>
