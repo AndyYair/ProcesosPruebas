@@ -5,7 +5,9 @@ import procesostest.*
 class SecFlujo {
     
     Flujo   fid
-    String  secuencia
+    Proceso   secuencia
+    
+    static hasMany = [secuencia: Proceso]
     
     static constraints = {
     }

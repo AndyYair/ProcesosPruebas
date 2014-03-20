@@ -23,11 +23,20 @@
 			</g:if>
 			<ol class="property-list secFlujo">
 			
+				<g:if test="${secFlujoInstance?.fid}">
+				<li class="fieldcontain">
+					<span id="fid-label" class="property-label"><g:message code="secFlujo.fid.label" default="Fid" /></span>
+					
+						<span class="property-value" aria-labelledby="fid-label"><g:link controller="flujo" action="show" id="${secFlujoInstance?.fid?.id}">${secFlujoInstance?.fid?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${secFlujoInstance?.secuencia}">
 				<li class="fieldcontain">
 					<span id="secuencia-label" class="property-label"><g:message code="secFlujo.secuencia.label" default="Secuencia" /></span>
 					
-						<span class="property-value" aria-labelledby="secuencia-label"><g:fieldValue bean="${secFlujoInstance}" field="secuencia"/></span>
+						<span class="property-value" aria-labelledby="secuencia-label"><g:link controller="proceso" action="show" id="${secFlujoInstance?.secuencia?.id}">${secFlujoInstance?.secuencia?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

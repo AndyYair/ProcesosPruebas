@@ -4,7 +4,6 @@ import procesostest.*
 
 class Proceso {
    
-    static scallfold = true
     
     String  id
     String  descripcion
@@ -12,7 +11,8 @@ class Proceso {
     String  status
     Flujo   fid
    
-
+    static belongsTo = SecFlujo
+    
     static constraints = {
     }
 }
