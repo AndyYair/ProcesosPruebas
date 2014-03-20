@@ -38,7 +38,7 @@
 					
 						<td><g:link action="show" id="${procesoInstance.id}">${fieldValue(bean: procesoInstance, field: "descripcion")}</g:link></td>
 					
-						<td>${fieldValue(bean: procesoInstance, field: "fid")}</td>
+						<td>${procesoInstance?.fid?.nomenclatura}</td>
 					
 						<td>${fieldValue(bean: procesoInstance, field: "status")}</td>
 					

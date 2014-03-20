@@ -12,6 +12,10 @@ class Proceso {
    
     static belongsTo = SecFlujo
     
+    String toString() {
+        "$id - $descripcion"
+    }
+    
     static constraints = {
     }
 }
