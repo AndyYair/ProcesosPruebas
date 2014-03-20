@@ -17,5 +17,6 @@ class Proceso {
     }
     
     static constraints = {
+        status nullable: true
     }
 }

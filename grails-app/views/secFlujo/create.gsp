@@ -1,4 +1,5 @@
 <%@ page import="procesostest.SecFlujo" %>
+<%@ page import="procesostest.Proceso" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,6 +17,12 @@
 		</div>
 		<div id="create-secFlujo" class="content scaffold-create" role="main">
 			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
+                        <!--create multiple select-->
+                        <!--g:select name="procesos"
+                          from="${Proceso.list()}"
+                          value="${proceso?.Proceso*.id}"
+                          optionKey="id"
+                          multiple="multiple" /-->
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>

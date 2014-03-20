@@ -7,7 +7,7 @@ class SecFlujo {
     Flujo   fid
     Proceso   secuencia
     
-    static hasMany = [secuencia: Proceso]
+    static hasMany = [procesos: Proceso]
     
     static constraints = {
     }
