@@ -5,9 +5,7 @@ import procesostest.Compania
 
 class Flujo {
     
-
-    
-    String      id
+    String      nomenclatura
     String      descripcion
     Promotora   idpromotora
     Compania    idcompania

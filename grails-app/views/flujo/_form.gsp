@@ -26,3 +26,11 @@
 	<g:select id="idpromotora" name="idpromotora.id" from="${procesostest.Promotora.list()}" optionKey="id" required="" value="${flujoInstance?.idpromotora?.id}" class="many-to-one"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: flujoInstance, field: 'nomenclatura', 'error')} ">
+	<label for="nomenclatura">
+		<g:message code="flujo.nomenclatura.label" default="Nomenclatura" />
+		
+	</label>
+	<g:textField name="nomenclatura" value="${flujoInstance?.nomenclatura}"/>
+</div>
+

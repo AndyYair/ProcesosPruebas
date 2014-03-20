@@ -30,6 +30,8 @@
 					
 						<th><g:message code="flujo.idpromotora.label" default="Idpromotora" /></th>
 					
+						<g:sortableColumn property="nomenclatura" title="${message(code: 'flujo.nomenclatura.label', default: 'Nomenclatura')}" />
+					
 					</tr>
 				</thead>
 				<tbody>
@@ -41,6 +43,8 @@
 						<td>${fieldValue(bean: flujoInstance, field: "idcompania")}</td>
 					
 						<td>${fieldValue(bean: flujoInstance, field: "idpromotora")}</td>
+					
+						<td>${fieldValue(bean: flujoInstance, field: "nomenclatura")}</td>
 					
 					</tr>
 				</g:each>

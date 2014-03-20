@@ -50,6 +50,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${flujoInstance?.nomenclatura}">
+				<li class="fieldcontain">
+					<span id="nomenclatura-label" class="property-label"><g:message code="flujo.nomenclatura.label" default="Nomenclatura" /></span>
+					
+						<span class="property-value" aria-labelledby="nomenclatura-label"><g:fieldValue bean="${flujoInstance}" field="nomenclatura"/></span>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form>
 				<fieldset class="buttons">
