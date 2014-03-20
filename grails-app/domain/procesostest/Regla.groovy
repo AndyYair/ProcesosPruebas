@@ -4,7 +4,7 @@ import procesostest.*
 
 class Regla {
     
-    String  id
+    Integer  id
     Proceso pid
     String  descripcion
     Date    iniVig

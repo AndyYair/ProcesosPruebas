@@ -28,7 +28,7 @@
 					
 						<g:sortableColumn property="idcompania" title="${message(code: 'flujo.idcompania.label', default: 'Idcompania')}" />
 					
-						<th><g:message code="flujo.idpromotora.label" default="Idpromotora" /></th>
+						<g:sortableColumn property="idpromotora" title="${message(code: 'flujo.idpromotora.label', default: 'Idpromotora')}" />
 					
 						<g:sortableColumn property="nomenclatura" title="${message(code: 'flujo.nomenclatura.label', default: 'Nomenclatura')}" />
 					

@@ -20,12 +20,12 @@ class FlujoController {
     }
 
     def save() {
+        params.nomenclatura = 'PROM'+params.idpromotora+'_COMP'+params.idcompania
         def flujoInstance = new Flujo(params)
         if (!flujoInstance.save(flush: true)) {
             render(view: "create", model: [flujoInstance: flujoInstance])
             return
         }
-
         flash.message = message(code: 'default.created.message', args: [message(code: 'flujo.label', default: 'Flujo'), flujoInstance.id])
         redirect(action: "show", id: flujoInstance.id)
     }

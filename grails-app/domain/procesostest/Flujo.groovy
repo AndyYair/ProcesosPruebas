@@ -7,7 +7,7 @@ class Flujo {
     
     String      nomenclatura
     String      descripcion
-    Promotora   idpromotora
+    Integer   idpromotora
     Integer     idcompania
     
     

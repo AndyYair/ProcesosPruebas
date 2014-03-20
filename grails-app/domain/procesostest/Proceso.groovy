@@ -5,9 +5,8 @@ import procesostest.*
 class Proceso {
    
     
-    String  id
+    Integer  id
     String  descripcion
-    String  nomenclatura
     String  status
     Flujo   fid
    

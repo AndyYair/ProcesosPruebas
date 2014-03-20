@@ -36,16 +36,7 @@
 				<li class="fieldcontain">
 					<span id="fid-label" class="property-label"><g:message code="proceso.fid.label" default="Fid" /></span>
 					
-						<span class="property-value" aria-labelledby="fid-label"><g:link controller="flujo" action="show" id="${procesoInstance?.fid?.id}">${procesoInstance?.fid?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${procesoInstance?.nomenclatura}">
-				<li class="fieldcontain">
-					<span id="nomenclatura-label" class="property-label"><g:message code="proceso.nomenclatura.label" default="Nomenclatura" /></span>
-					
-						<span class="property-value" aria-labelledby="nomenclatura-label"><g:fieldValue bean="${procesoInstance}" field="nomenclatura"/></span>
+						<span class="property-value" aria-labelledby="fid-label"><g:link controller="flujo" action="show" id="${procesoInstance?.fid?.id}">${procesoInstance?.fid?.nomenclatura.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

@@ -45,7 +45,7 @@
 				<li class="fieldcontain">
 					<span id="idpromotora-label" class="property-label"><g:message code="flujo.idpromotora.label" default="Idpromotora" /></span>
 					
-						<span class="property-value" aria-labelledby="idpromotora-label"><g:link controller="promotora" action="show" id="${flujoInstance?.idpromotora?.id}">${flujoInstance?.idpromotora?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="idpromotora-label"><g:fieldValue bean="${flujoInstance}" field="idpromotora"/></span>
 					
 				</li>
 				</g:if>
