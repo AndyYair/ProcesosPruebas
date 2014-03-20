@@ -8,9 +8,10 @@ class Flujo {
     String      nomenclatura
     String      descripcion
     Promotora   idpromotora
-    Compania    idcompania
-  
-
+    Integer     idcompania
+    
+    
+    
     static constraints = {
     }
 }

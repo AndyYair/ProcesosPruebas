@@ -15,7 +15,7 @@
 		<g:message code="flujo.idcompania.label" default="Idcompania" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="idcompania" name="idcompania.id" from="${procesostest.Compania.list()}" optionKey="id" required="" value="${flujoInstance?.idcompania?.id}" class="many-to-one"/>
+	<g:field name="idcompania" type="number" value="${flujoInstance.idcompania}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: flujoInstance, field: 'idpromotora', 'error')} required">
