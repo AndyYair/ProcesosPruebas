@@ -1,6 +1,4 @@
-<%@ page import="procesostest.Flujo" %>
-
-
+<%@ page import="procesostest.*" %>
 
 <div class="fieldcontain ${hasErrors(bean: flujoInstance, field: 'descripcion', 'error')} ">
 	<label for="descripcion">
@@ -18,20 +16,21 @@
 	<g:datePicker name="finVig" precision="day"  value="${flujoInstance?.finVig}"  />
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: flujoInstance, field: 'idcompania', 'error')} required">
-	<label for="idcompania">
-		<g:message code="flujo.idcompania.label" default="Idcompania" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field name="idcompania" type="number" value="${flujoInstance.idcompania}" required=""/>
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: flujoInstance, field: 'idpromotora', 'error')} required">
 	<label for="idpromotora">
 		<g:message code="flujo.idpromotora.label" default="Idpromotora" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="idpromotora" type="number" value="${flujoInstance.idpromotora}" required=""/>
+                   <g:select id="promotora" name="idpromotora" from="${Promotora.list()}" onchange="${remoteFunction(action: 'obtenerCompania', params: '\'idpromotora=\'+this.value')}" optionKey="id" value="${flujoInstance.idpromotora}" />
+	
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: flujoInstance, field: 'idcompania', 'error')} required">
+	<label for="idcompania">
+		<g:message code="flujo.idcompania.label" default="Idcompania" />
+		<span class="required-indicator">*</span>
+	</label>
+                    <g:select optionKey="numcomp" name="idcompania" from="${[]}" value="nombcomp" optionValue="nombcomp"  noSelection="${[ null: message(code:'promotora.noSelect.label')]}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: flujoInstance, field: 'iniVig', 'error')} required">

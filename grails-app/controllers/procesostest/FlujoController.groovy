@@ -1,5 +1,6 @@
 package procesostest
 
+import grails.converters.JSON
 import org.springframework.dao.DataIntegrityViolationException
 
 class FlujoController {
@@ -20,6 +21,8 @@ class FlujoController {
     }
 
     def save() {
+        
+        params.nomenclatura = 'PROM_'+params.idpromotora+'COMP_'+params.idpromotora+'_'+params.idcompania
         def flujoInstance = new Flujo(params)
         if (!flujoInstance.save(flush: true)) {
             render(view: "create", model: [flujoInstance: flujoInstance])
@@ -99,4 +102,12 @@ class FlujoController {
             redirect(action: "show", id: id)
         }
     }
+    
+    def obtenerCompania = {
+        println("Hola")
+        
+    def companiaInstanceList = Compania.findAllByNumeprom(params.idpromotora)
+    def companias = companiaInstanceList.collect {[id: it.numcomp, nombcomp: it.nombcomp]}
+    render companias as JSON
+}
 }
