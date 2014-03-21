@@ -4,7 +4,9 @@
 		<span class="required-indicator">*</span>
 </label>
 <g:textField name="idcompania" value="${numcompania}"/>
-<g:select
+<g:select id="nocompania"
        from="${companias}"
-       name="nomenclatura" value="" >
+       name="nomenclatura" 
+       onchange="${remoteFunction(action: 'obtenerNoCompania', params: '\'idpromotora=\'+this.value', update:'idcompania')}"  
+       value="" >
 </g:select>
