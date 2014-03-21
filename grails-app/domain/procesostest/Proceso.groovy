@@ -9,6 +9,8 @@ class Proceso {
     String  descripcion
     String  status
     Flujo   fid
+    Date    iniVig
+    Date    finVig
    
     static belongsTo = SecFlujo
     

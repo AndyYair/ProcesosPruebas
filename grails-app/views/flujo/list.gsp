@@ -26,9 +26,13 @@
 					
 						<g:sortableColumn property="descripcion" title="${message(code: 'flujo.descripcion.label', default: 'Descripcion')}" />
 					
+						<g:sortableColumn property="finVig" title="${message(code: 'flujo.finVig.label', default: 'Fin Vig')}" />
+					
 						<g:sortableColumn property="idcompania" title="${message(code: 'flujo.idcompania.label', default: 'Idcompania')}" />
 					
 						<g:sortableColumn property="idpromotora" title="${message(code: 'flujo.idpromotora.label', default: 'Idpromotora')}" />
+					
+						<g:sortableColumn property="iniVig" title="${message(code: 'flujo.iniVig.label', default: 'Ini Vig')}" />
 					
 						<g:sortableColumn property="nomenclatura" title="${message(code: 'flujo.nomenclatura.label', default: 'Nomenclatura')}" />
 					
@@ -40,9 +44,13 @@
 					
 						<td><g:link action="show" id="${flujoInstance.id}">${fieldValue(bean: flujoInstance, field: "descripcion")}</g:link></td>
 					
+						<td><g:formatDate date="${flujoInstance.finVig}" /></td>
+					
 						<td>${fieldValue(bean: flujoInstance, field: "idcompania")}</td>
 					
 						<td>${fieldValue(bean: flujoInstance, field: "idpromotora")}</td>
+					
+						<td><g:formatDate date="${flujoInstance.iniVig}" /></td>
 					
 						<td>${fieldValue(bean: flujoInstance, field: "nomenclatura")}</td>
 					

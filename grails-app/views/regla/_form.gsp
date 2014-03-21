@@ -122,6 +122,14 @@
 	<g:select id="pid" name="pid.id" from="${procesostest.Proceso.list()}" optionKey="id" required="" value="${reglaInstance?.pid?.id}" class="many-to-one"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: reglaInstance, field: 'status', 'error')} ">
+	<label for="status">
+		<g:message code="regla.status.label" default="Status" />
+		
+	</label>
+	<g:textField name="status" value="${reglaInstance?.status}"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: reglaInstance, field: 'valorAsignado1', 'error')} ">
 	<label for="valorAsignado1">
 		<g:message code="regla.valorAsignado1.label" default="Valor Asignado1" />

@@ -32,6 +32,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${flujoInstance?.finVig}">
+				<li class="fieldcontain">
+					<span id="finVig-label" class="property-label"><g:message code="flujo.finVig.label" default="Fin Vig" /></span>
+					
+						<span class="property-value" aria-labelledby="finVig-label"><g:formatDate date="${flujoInstance?.finVig}" /></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${flujoInstance?.idcompania}">
 				<li class="fieldcontain">
 					<span id="idcompania-label" class="property-label"><g:message code="flujo.idcompania.label" default="Idcompania" /></span>
@@ -50,11 +59,29 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${flujoInstance?.iniVig}">
+				<li class="fieldcontain">
+					<span id="iniVig-label" class="property-label"><g:message code="flujo.iniVig.label" default="Ini Vig" /></span>
+					
+						<span class="property-value" aria-labelledby="iniVig-label"><g:formatDate date="${flujoInstance?.iniVig}" /></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${flujoInstance?.nomenclatura}">
 				<li class="fieldcontain">
 					<span id="nomenclatura-label" class="property-label"><g:message code="flujo.nomenclatura.label" default="Nomenclatura" /></span>
 					
 						<span class="property-value" aria-labelledby="nomenclatura-label"><g:fieldValue bean="${flujoInstance}" field="nomenclatura"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${flujoInstance?.status}">
+				<li class="fieldcontain">
+					<span id="status-label" class="property-label"><g:message code="flujo.status.label" default="Status" /></span>
+					
+						<span class="property-value" aria-labelledby="status-label"><g:fieldValue bean="${flujoInstance}" field="status"/></span>
 					
 				</li>
 				</g:if>

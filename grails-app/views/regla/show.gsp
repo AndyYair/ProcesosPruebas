@@ -158,6 +158,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${reglaInstance?.status}">
+				<li class="fieldcontain">
+					<span id="status-label" class="property-label"><g:message code="regla.status.label" default="Status" /></span>
+					
+						<span class="property-value" aria-labelledby="status-label"><g:fieldValue bean="${reglaInstance}" field="status"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${reglaInstance?.valorAsignado1}">
 				<li class="fieldcontain">
 					<span id="valorAsignado1-label" class="property-label"><g:message code="regla.valorAsignado1.label" default="Valor Asignado1" /></span>

@@ -7,8 +7,11 @@ class Flujo {
     
     String      nomenclatura
     String      descripcion
-    Integer   idpromotora
+    Integer     idpromotora
     Integer     idcompania
+    Date        iniVig
+    Date        finVig
+    String      status
     
     
     

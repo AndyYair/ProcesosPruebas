@@ -23,6 +23,15 @@
 			</g:if>
 			<ol class="property-list proceso">
 			
+				<g:if test="${procesoInstance?.status}">
+				<li class="fieldcontain">
+					<span id="status-label" class="property-label"><g:message code="proceso.status.label" default="Status" /></span>
+					
+						<span class="property-value" aria-labelledby="status-label"><g:fieldValue bean="${procesoInstance}" field="status"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${procesoInstance?.descripcion}">
 				<li class="fieldcontain">
 					<span id="descripcion-label" class="property-label"><g:message code="proceso.descripcion.label" default="Descripcion" /></span>
@@ -36,16 +45,25 @@
 				<li class="fieldcontain">
 					<span id="fid-label" class="property-label"><g:message code="proceso.fid.label" default="Fid" /></span>
 					
-						<span class="property-value" aria-labelledby="fid-label"><g:link controller="flujo" action="show" id="${procesoInstance?.fid?.id}">${procesoInstance?.fid?.nomenclatura.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="fid-label"><g:link controller="flujo" action="show" id="${procesoInstance?.fid?.id}">${procesoInstance?.fid?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${procesoInstance?.status}">
+				<g:if test="${procesoInstance?.finVig}">
 				<li class="fieldcontain">
-					<span id="status-label" class="property-label"><g:message code="proceso.status.label" default="Status" /></span>
+					<span id="finVig-label" class="property-label"><g:message code="proceso.finVig.label" default="Fin Vig" /></span>
 					
-						<span class="property-value" aria-labelledby="status-label"><g:fieldValue bean="${procesoInstance}" field="status"/></span>
+						<span class="property-value" aria-labelledby="finVig-label"><g:formatDate date="${procesoInstance?.finVig}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${procesoInstance?.iniVig}">
+				<li class="fieldcontain">
+					<span id="iniVig-label" class="property-label"><g:message code="proceso.iniVig.label" default="Ini Vig" /></span>
+					
+						<span class="property-value" aria-labelledby="iniVig-label"><g:formatDate date="${procesoInstance?.iniVig}" /></span>
 					
 				</li>
 				</g:if>

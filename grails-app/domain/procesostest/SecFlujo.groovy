@@ -3,7 +3,7 @@ package procesostest
 class SecFlujo {
     
     Flujo   fid
-    String   secuencia
+    String  secuencia
      
     static constraints = {
     }

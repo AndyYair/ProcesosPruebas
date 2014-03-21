@@ -9,6 +9,7 @@ class Regla {
     String  descripcion
     Date    iniVig
     Date    finVig
+    String  status
     String  objAfe1
     String  attrAfe1
     String  operador1

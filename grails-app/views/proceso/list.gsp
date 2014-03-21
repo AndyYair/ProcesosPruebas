@@ -24,11 +24,15 @@
 				<thead>
 					<tr>
 					
+						<g:sortableColumn property="status" title="${message(code: 'proceso.status.label', default: 'Status')}" />
+					
 						<g:sortableColumn property="descripcion" title="${message(code: 'proceso.descripcion.label', default: 'Descripcion')}" />
 					
 						<th><g:message code="proceso.fid.label" default="Fid" /></th>
 					
-						<g:sortableColumn property="status" title="${message(code: 'proceso.status.label', default: 'Status')}" />
+						<g:sortableColumn property="finVig" title="${message(code: 'proceso.finVig.label', default: 'Fin Vig')}" />
+					
+						<g:sortableColumn property="iniVig" title="${message(code: 'proceso.iniVig.label', default: 'Ini Vig')}" />
 					
 					</tr>
 				</thead>
@@ -36,11 +40,15 @@
 				<g:each in="${procesoInstanceList}" status="i" var="procesoInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${procesoInstance.id}">${fieldValue(bean: procesoInstance, field: "descripcion")}</g:link></td>
+						<td><g:link action="show" id="${procesoInstance.id}">${fieldValue(bean: procesoInstance, field: "status")}</g:link></td>
 					
-						<td>${procesoInstance?.fid?.nomenclatura}</td>
+						<td>${fieldValue(bean: procesoInstance, field: "descripcion")}</td>
 					
-						<td>${fieldValue(bean: procesoInstance, field: "status")}</td>
+						<td>${fieldValue(bean: procesoInstance, field: "fid")}</td>
+					
+						<td><g:formatDate date="${procesoInstance.finVig}" /></td>
+					
+						<td><g:formatDate date="${procesoInstance.iniVig}" /></td>
 					
 					</tr>
 				</g:each>
