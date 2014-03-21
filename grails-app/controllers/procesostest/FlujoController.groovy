@@ -113,7 +113,7 @@ class FlujoController {
     }
     def obtenerNoCompania = {
         println("Obtener No Compania")
-        def companiaInstanceList = Compania.findByNumeprom(params.idcompania)
+        def companiaInstanceList = Compania.findAllByNumeprom(params.idcompania)
         //def companias = companiaInstanceList.collect {[it.numcomp,it.nombcomp]}
         def numcompania = companiaInstanceList.collect{it.numcomp}
         //render companias as JSON
