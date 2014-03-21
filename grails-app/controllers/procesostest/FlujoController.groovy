@@ -22,7 +22,7 @@ class FlujoController {
 
     def save() {
         
-        params.nomenclatura = 'PROM_'+params.idpromotora+'COMP_'+params.idpromotora+'_'+params.nomenclatura
+        params.nomenclatura = 'PROM'+params.idpromotora+'_COMP'+params.nomenclatura
         def flujoInstance = new Flujo(params)
         if (!flujoInstance.save(flush: true)) {
             render(view: "create", model: [flujoInstance: flujoInstance])
@@ -110,5 +110,13 @@ class FlujoController {
         def numcompania = companiaInstanceList.collect {[it.numcomp]}
         //render companias as JSON
         render(template:"companias", model: ['companias' : companias, 'numcompania' : numcompania])
-}
+    }
+    def obtenerNoCompania = {
+        println("Obtener No Compania")
+        def companiaInstanceList = Compania.findAllByNumeprom(params.idpromotora)
+        def companias = companiaInstanceList.collect {[it.numcomp,it.nombcomp]}
+        def numcompania = companiaInstanceList.collect{it.numcomp}
+        //render companias as JSON
+        render(template:"companias", model: ['companias' : companias, 'numcompania' : numcompania])
+    }
 }
