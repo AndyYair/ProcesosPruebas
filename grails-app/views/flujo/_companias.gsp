@@ -2,7 +2,7 @@
 <g:select id="nocompania"
        from="${companias}"
        name="nomenclatura" 
-       onfocus="${remoteFunction(action: 'obtenerNoCompania', params: '\'idpromotora=\'+this.value', update:'id_compania')}"  
+       onchange="${remoteFunction(action: 'obtenerNoCompania', params: '\'idcompania=\'+this.value', update:'id_compania')}"  
        value="" >
 </g:select>
 
