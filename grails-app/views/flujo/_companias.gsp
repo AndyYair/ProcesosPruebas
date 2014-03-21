@@ -3,7 +3,8 @@
        from="${companias}"
        name="nomenclatura" 
        onchange="${remoteFunction(action: 'obtenerNoCompania', params: '\'idcompania=\'+this.value', update:'id_compania')}"  
-       value="" >
+       onfocus="${remoteFunction(action: 'obtenerNoCompania', params: '\'idcompania=\'+this.value', update:'id_compania')}"  
+           value="" >
 </g:select>
 
 <label for="idcompania">
