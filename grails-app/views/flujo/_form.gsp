@@ -29,6 +29,11 @@
 	                    
 </div>
 
+
+<div id="id_compania" class="fieldcontain ${hasErrors(bean: flujoInstance, field: 'idcompania', 'error')} required">
+	                    
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: flujoInstance, field: 'iniVig', 'error')} required">
 	<label for="iniVig">
 		<g:message code="flujo.iniVig.label" default="Ini Vig" />

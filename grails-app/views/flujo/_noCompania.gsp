@@ -1,7 +1,8 @@
 <%@ page import="procesostest.*" %>
-<label for="idcompania">
-		<g:message code="flujo.idcompania.label" default="Idcompania" />
+<div>RENDER
+<label for="id_compania">
+		<g:message code="flujo.idcompania.label" default="Id_compania" />
 		<span class="required-indicator">*</span>
 </label>
-<g:textField name="idcompania" value="${numcompania}"/>
-
+<g:textField name="id_compania" value="${numcompania}"/>
+</div>
