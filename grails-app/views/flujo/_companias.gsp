@@ -5,7 +5,7 @@
        onfocus="${remoteFunction(action: 'obtenerNoCompania', params: '\'idpromotora=\'+this.value', update:'id_compania')}"  
        value="" >
 </g:select>
-<%@ page import="procesostest.*" %>
+
 <label for="idcompania">
 		<g:message code="flujo.idcompania.label" default="Idcompania" />
 		<span class="required-indicator">*</span>
