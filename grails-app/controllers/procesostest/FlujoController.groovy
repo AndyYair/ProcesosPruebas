@@ -108,6 +108,7 @@ class FlujoController {
         
     def companiaInstanceList = Compania.findAllByNumeprom(params.idpromotora)
     def companias = companiaInstanceList.collect {[id: it.numcomp, nombcomp: it.nombcomp]}
-    render companias as JSON
+    //render companias as JSON
+    render(template:"companias", model: ['companias' : companias])
 }
 }

@@ -21,16 +21,12 @@
 		<g:message code="flujo.idpromotora.label" default="Idpromotora" />
 		<span class="required-indicator">*</span>
 	</label>
-                   <g:select id="promotora" name="idpromotora" from="${Promotora.list()}" onchange="${remoteFunction(action: 'obtenerCompania', params: '\'idpromotora=\'+this.value')}" optionKey="id" value="${flujoInstance.idpromotora}" />
+                   <g:select id="promotora" name="idpromotora" from="${Promotora.list()}" onchange="${remoteFunction(action: 'obtenerCompania', params: '\'idpromotora=\'+this.value', update:'divcompanias')}"  optionKey="id" value="${flujoInstance.idpromotora}" />
 	
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: flujoInstance, field: 'idcompania', 'error')} required">
-	<label for="idcompania">
-		<g:message code="flujo.idcompania.label" default="Idcompania" />
-		<span class="required-indicator">*</span>
-	</label>
-                    <g:select optionKey="numcomp" name="idcompania" from="${[]}" value="nombcomp" optionValue="nombcomp"  noSelection="${[ null: message(code:'promotora.noSelect.label')]}"/>
+<div id="divcompanias" class="fieldcontain ${hasErrors(bean: flujoInstance, field: 'idcompania', 'error')} required">
+	                    
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: flujoInstance, field: 'iniVig', 'error')} required">
