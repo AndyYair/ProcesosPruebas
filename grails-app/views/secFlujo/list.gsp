@@ -26,7 +26,7 @@
 					
 						<th><g:message code="secFlujo.fid.label" default="Fid" /></th>
 					
-						<th><g:message code="secFlujo.secuencia.label" default="Secuencia" /></th>
+						<g:sortableColumn property="secuencia" title="${message(code: 'secFlujo.secuencia.label', default: 'Secuencia')}" />
 					
 					</tr>
 				</thead>

@@ -1,4 +1,4 @@
-<%@ page import="procesostest.SecFlujo" %>
+<%@ page import="procesostest.SecFlujo;procesostest.Proceso" %>
 
 
 
@@ -8,13 +8,16 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="fid" name="fid.id" from="${procesostest.Flujo.list()}" optionKey="id" required="" value="${secFlujoInstance?.fid?.id}" class="many-to-one"/>
+         <!--create multiple select-->
+        <g:select name="secuencia"
+                  from="${Proceso.list()}"
+                  value="${proceso?.Proceso*.id}"
+                  optionKey="id"
+                  id="secuencia"
+                  multiple="multiple" />
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: secFlujoInstance, field: 'secuencia', 'error')} required">
-	<label for="secuencia">
-		<g:message code="secFlujo.secuencia.label" default="Secuencia" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="secuencia" multiple="true" name="secuencia.id" from="${procesostest.Proceso.list()}" optionKey="id" required="" value="${secFlujoInstance?.secuencia?.id}" class="many-to-one"/>
+<div class="fieldcontain ${hasErrors(bean: secFlujoInstance, field: 'secuencia', 'error')} ">
+	
 </div>
 

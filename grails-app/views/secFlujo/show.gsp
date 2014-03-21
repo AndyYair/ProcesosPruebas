@@ -36,7 +36,7 @@
 				<li class="fieldcontain">
 					<span id="secuencia-label" class="property-label"><g:message code="secFlujo.secuencia.label" default="Secuencia" /></span>
 					
-						<span class="property-value" aria-labelledby="secuencia-label"><g:link controller="proceso" action="show" id="${secFlujoInstance?.secuencia?.id}">${secFlujoInstance?.secuencia?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="secuencia-label"><g:fieldValue bean="${secFlujoInstance}" field="secuencia"/></span>
 					
 				</li>
 				</g:if>
