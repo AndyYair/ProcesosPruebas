@@ -112,8 +112,10 @@ class FlujoController {
         render(template:"companias", model: ['companias' : companias, 'numcompania' : numcompania])
     }
     def obtenerNoCompania = {
-        println("Obtener No Compania")
+        println("Obtener No Compania"+params)
         def numcompania = params.idcompania
+        def numerosolocompania = numcompania.collect {[0]}
+        
         //def companias = companiaInstanceList.collect {[it.numcomp,it.nombcomp]}
         //render companias as JSON
         render(template:"noCompania", model: ['numcompania' : numcompania])
