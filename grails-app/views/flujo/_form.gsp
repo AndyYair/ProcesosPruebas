@@ -21,7 +21,7 @@
 		<g:message code="flujo.idpromotora.label" default="Idpromotora" />
 		<span class="required-indicator">*</span>
 	</label>
-                   <g:select id="idpromotora" name="idpromotora" from="${Promotora.list()}" onchange="${remoteFunction(action: 'getCompanias', params: '\'idpromotora=\'+this.value', update:'divcompanias')}"  optionKey="descripcion" value="${flujoInstance.idpromotora}" noSelection="['null':'- Seleccione una promotora -']" />
+                   <g:select id="idpromotora" name="idpromotora" from="${Promotora.list()}" onchange="${remoteFunction(action: 'getCompanias', params: '\'idpromotora=\'+this.value', update:'divcompanias')}"  optionKey="id" value="${flujoInstance.idpromotora}" noSelection="['null':'- Seleccione una promotora -']" />
 	
 </div>
 
