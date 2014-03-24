@@ -21,9 +21,19 @@ class FlujoController {
     }
 
     def save() {
-        
-        params.nomenclatura = 'PROM'+params.idpromotora+'_COMP'+params.nomenclatura
-        def flujoInstance = new Flujo(params)
+        def nombrepromotora
+        def nombrecompania
+        def prom = Promotora.executeQuery("SELECT nombre FROM Promotora WHERE id=$params.idpromotora")
+        prom.each{
+            nombrepromotora = it
+        }
+        def comp = Compania.executeQuery("SELECT nombcomp FROM Compania WHERE numeprom=$params.idpromotora AND numcomp = $params.idcompania")
+        comp.each{
+            nombrecompania = it
+        }
+        params.nomenclatura = params.idpromotora+'-'+nombrepromotora+params.idcompania+'-'+nombrecompania
+        println(params.nomenclatura)
+       def flujoInstance = new Flujo(params)
         if (!flujoInstance.save(flush: true)) {
             render(view: "create", model: [flujoInstance: flujoInstance])
             return
@@ -103,7 +113,7 @@ class FlujoController {
         }
     }
     
-    def obtenerCompania = {
+    /*def obtenerCompania = {
         println("Obtener Companias")
         def companiaInstanceList = Compania.findAllByNumeprom(params.idpromotora)
         def companias = companiaInstanceList.collect {[it.numcomp,it.nombcomp]}
@@ -119,5 +129,12 @@ class FlujoController {
         //def companias = companiaInstanceList.collect {[it.numcomp,it.nombcomp]}
         //render companias as JSON
         render(template:"noCompania", model: ['numcompania' : numcompania])
+    }*/
+    
+    def getCompanias = {
+        Integer numprom = params.idpromotora.toInteger()
+        def companias = Compania.findAllWhere(numeprom: numprom)
+        //def     companias = [type:companiasList]
+        render(template: "compania", model: [list: companias])
     }
 }

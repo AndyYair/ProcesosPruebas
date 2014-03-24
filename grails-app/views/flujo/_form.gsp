@@ -21,16 +21,11 @@
 		<g:message code="flujo.idpromotora.label" default="Idpromotora" />
 		<span class="required-indicator">*</span>
 	</label>
-                   <g:select id="promotora" name="idpromotora" from="${Promotora.list()}" onchange="${remoteFunction(action: 'obtenerCompania', params: '\'idpromotora=\'+this.value', update:'divcompanias')}"  optionKey="id" value="${flujoInstance.idpromotora}" />
+                   <g:select id="idpromotora" name="idpromotora" from="${Promotora.list()}" onchange="${remoteFunction(action: 'getCompanias', params: '\'idpromotora=\'+this.value', update:'divcompanias')}"  optionKey="descripcion" value="${flujoInstance.idpromotora}" noSelection="['null':'- Seleccione una promotora -']" />
 	
 </div>
 
 <div id="divcompanias" class="fieldcontain ${hasErrors(bean: flujoInstance, field: 'idcompania', 'error')} required">
-	                    
-</div>
-
-
-<div id="id_compania" class="fieldcontain ${hasErrors(bean: flujoInstance, field: 'idcompania', 'error')} required">
 	                    
 </div>
 
@@ -42,14 +37,6 @@
 	<g:datePicker name="iniVig" precision="day"  value="${flujoInstance?.iniVig}"  />
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: flujoInstance, field: 'nomenclatura', 'error')} ">
-	<label for="nomenclatura">
-		<g:message code="flujo.nomenclatura.label" default="Nomenclatura" />
-		
-	</label>
-	<g:textField name="nomenclatura" value="${flujoInstance?.nomenclatura}"/>
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: flujoInstance, field: 'status', 'error')} ">
 	<label for="status">
 		<g:message code="flujo.status.label" default="Status" />
@@ -57,4 +44,5 @@
 	</label>
 	<g:textField name="status" value="${flujoInstance?.status}"/>
 </div>
+
 

@@ -16,5 +16,10 @@ class Flujo {
     
     
     static constraints = {
+        status(nullable: true )
+    }
+    
+     String toString(){
+        "$id"+"  -  "+"$descripcion"
     }
 }

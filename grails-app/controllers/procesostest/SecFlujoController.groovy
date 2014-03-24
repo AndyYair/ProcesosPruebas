@@ -99,4 +99,9 @@ class SecFlujoController {
             redirect(action: "show", id: id)
         }
     }
+     def getProcesos = {
+        Flujo flujo = Flujo.get(params.fid) 
+        def procesos = Proceso.findAllByFid(flujo)
+        render(template: "proceso", model: [list: procesos])
+    }
 }
