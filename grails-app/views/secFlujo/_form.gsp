@@ -8,6 +8,7 @@
             optionKey="id" required="" value="${secFlujoInstance?.fid?.id}" class="many-to-one" 
             onchange="${remoteFunction(action: 'getProcesos', params: '\'fid=\'+this.value', update:'secuencia')}" 
             onfocus="${remoteFunction(action: 'getProcesos', params: '\'fid=\'+this.value', update:'secuencia')}"
+            noSelection="['null':'- Seleccione un flujo de procesos -']"
         />
         
  </div>       
