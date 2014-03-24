@@ -4,12 +4,16 @@
 		<g:message code="secFlujo.fid.label" default="Fid" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="fid" name="fid.id" from="${procesostest.Flujo.list()}" optionKey="id" required="" value="${secFlujoInstance?.fid?.id}" class="many-to-one" onchange="${remoteFunction(action: 'getProcesos', params: '\'fid=\'+this.value', update:'secuencia')}"/>
+	<g:select id="fid" name="fid.id" from="${procesostest.Flujo.list()}" 
+            optionKey="id" required="" value="${secFlujoInstance?.fid?.id}" class="many-to-one" 
+            onchange="${remoteFunction(action: 'getProcesos', params: '\'fid=\'+this.value', update:'secuencia')}" 
+            onfocus="${remoteFunction(action: 'getProcesos', params: '\'fid=\'+this.value', update:'secuencia')}"
+        />
         
  </div>       
  
 <div id="secuencia">        
-
+       
 </div>
 
     
