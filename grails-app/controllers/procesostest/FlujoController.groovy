@@ -163,10 +163,12 @@ class FlujoController {
                             secuenciaflujo.each{
                                     Proceso pid = Proceso.get(it)
                                     reglas = Regla.findByPid(pid)
-                                    println("Reglas del proceso: "+pid+"\n"+reglas)
+                                    println("Reglas del proceso: "+pid+"\n"+reglas.id+":"+reglas.descripcion)
                             }
                   
         }
+        
+        redirect(uri:'/')
          
     }
     
