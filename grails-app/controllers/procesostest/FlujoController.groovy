@@ -153,6 +153,7 @@ class FlujoController {
         render("Flujo correspondiente: "+flujo+"<br>")
             if(flujo==[]){
                 render("No hay un flujo definido para $params.idpromotora - $params.idcompania")
+                println("No hay un flujo definido para $params.idpromotora - $params.idcompania")
             }
         flujo.each{
             Flujo idflujo = Flujo.get(it)
@@ -160,6 +161,7 @@ class FlujoController {
             secuencia = SecFlujo.findByFid(idflujo)
             if(!secuencia){
                 render("No hay definida una secuencia para el flujo: "+idflujo)
+                println("No hay definida una secuencia para el flujo: "+idflujo)
             } else {
                     println("ID de la Secuencia: "+secuencia)
                     render("ID de la Secuencia: "+secuencia+"<br>")
@@ -170,10 +172,12 @@ class FlujoController {
                                             Proceso pid = Proceso.get(it)
                                             if(!pid){
                                                 render("No hay procesos definidos para la secuencia: "+it)
+                                                println("No hay procesos definidos para la secuencia: "+it)
                                             }else{
                                                 reglas = Regla.findByPid(pid)
                                                 if(!reglas){
                                                     render("No hay reglas definidas para el proceso: "+pid)
+                                                    println("No hay reglas definidas para el proceso: "+pid)
                                                 }else{
                                                     println("Proceso: "+pid+"\n Regla(s): "+reglas.id+":"+reglas.descripcion)
                                                     render("Proceso: "+pid+"<br> Regla(s): "+reglas.id+":"+reglas.descripcion+"<br>")
