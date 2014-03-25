@@ -150,25 +150,26 @@ class FlujoController {
          
         flujo = Flujo.executeQuery("SELECT id FROM Flujo WHERE idpromotora = $params.idpromotora AND idcompania = $params.idcompania")
         println("Flujo correspondiente: "+flujo)
-  
+        render("Flujo correspondiente: "+flujo+"<br>")
         flujo.each{
             Flujo idflujo = Flujo.get(it)
             
             secuencia = SecFlujo.findByFid(idflujo)
             println("ID de la Secuencia: "+secuencia)
-            
+            render("ID de la Secuencia: "+secuencia+"<br>")
             List<String> secuenciaflujo = Arrays.asList(secuencia.secuencia.split("\\s*,\\s*")) //Convirtiendo el string en un ArrayList con el metodo "split", separa los elementos por coma, espacios o zeros
            println("Procesos de la Secuencia: "+secuenciaflujo)
             
                             secuenciaflujo.each{
                                     Proceso pid = Proceso.get(it)
                                     reglas = Regla.findByPid(pid)
-                                    println("Reglas del proceso: "+pid+"\n"+reglas.id+":"+reglas.descripcion)
+                                    println("Proceso: "+pid+"\n Regla(s): "+reglas.id+":"+reglas.descripcion)
+                                    render("Proceso: "+pid+"<br> Regla(s): "+reglas.id+":"+reglas.descripcion+"<br>")
                             }
                   
         }
         
-        redirect(uri:'/')
+        //redirect(uri:'/')
          
     }
     
