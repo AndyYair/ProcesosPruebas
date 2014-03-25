@@ -168,9 +168,18 @@ class FlujoController {
 
                                     secuenciaflujo.each{
                                             Proceso pid = Proceso.get(it)
-                                            reglas = Regla.findByPid(pid)
-                                            println("Proceso: "+pid+"\n Regla(s): "+reglas.id+":"+reglas.descripcion)
-                                            render("Proceso: "+pid+"<br> Regla(s): "+reglas.id+":"+reglas.descripcion+"<br>")
+                                            if(!pid){
+                                                render("No hay procesos definidos para la secuencia: "+it)
+                                            }else{
+                                                reglas = Regla.findByPid(pid)
+                                                if(!reglas){
+                                                    render("No hay reglas definidas para el proceso: "+pid)
+                                                }else{
+                                                    println("Proceso: "+pid+"\n Regla(s): "+reglas.id+":"+reglas.descripcion)
+                                                    render("Proceso: "+pid+"<br> Regla(s): "+reglas.id+":"+reglas.descripcion+"<br>")
+                                                }
+                                                
+                                            }
                                     }
             }
         }
