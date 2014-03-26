@@ -3,8 +3,11 @@ package procesostest
 import grails.converters.JSON
 import org.springframework.dao.DataIntegrityViolationException
 import procesostest.*
+import groovy.sql.Sql;
 
 class FlujoController {
+    
+    def dataSource
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -179,9 +182,20 @@ class FlujoController {
                                                     render("No hay reglas definidas para el proceso: "+pid)
                                                     println("No hay reglas definidas para el proceso: "+pid)
                                                 }else{
+                                                    println("\n")
                                                     println("Proceso: "+pid+"\n Regla(s): "+reglas.id+":"+reglas.descripcion)
                                                     render("Proceso: "+pid+"<br> Regla(s): "+reglas.id+":"+reglas.descripcion+"<br>")
-                                                }
+                                                           
+                                                        reglas.each{
+                                                           println "Ejecutando sentencia de la regla"+"\n==================================="
+                                                           println it.objAfe1+"."+it.attrAfe1+"="+it.valorAsignado1
+                                                           println "UPDATE $it.objAfe1 SET $it.attrAfe1 = $it.valorAsignado1 WHERE $it.objCond1.$it.attrCond1 $it.operadorCondicion $it.valorCondicion2"
+                                                            def query = "UPDATE $it.objAfe1 SET $it.attrAfe1 = $it.valorAsignado1 WHERE $it.objCond1.$it.attrCond1 $it.operadorCondicion $it.valorCondicion2" 
+                                                            def sql = Sql.newInstance(dataSource)
+                                                            sql.execute(query)
+                                                            println "\n"
+                                                        }
+                                                  }
                                                 
                                             }
                                     }
