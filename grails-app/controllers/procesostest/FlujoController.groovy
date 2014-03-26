@@ -192,10 +192,8 @@ class FlujoController {
 
                                                            
                                                             def String query = ("UPDATE $it.objAfe1 SET $it.attrAfe1 = $it.valorAsignado1 WHERE $it.objCond1.$it.attrCond1 $it.operadorCondicion $it.valorCondicion2") 
-                                                            def query2 = ("UPDATE PRUEBAS SET PROCESABLE = 'COMPLEMENT' WHERE PRUEBAS.COSTO < 10000") 
                                                             println(query)
                                                             render(query+"<br>")
-                                                            render(query2+"<br>")
                                                             def sql = Sql.newInstance(dataSource)
                                                             try {
                                                                 sql.execute(query)
