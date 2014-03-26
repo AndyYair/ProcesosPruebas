@@ -186,13 +186,25 @@ class FlujoController {
                                                     println("Proceso: "+pid+"\n Regla(s): "+reglas.id+":"+reglas.descripcion)
                                                     render("Proceso: "+pid+"<br> Regla(s): "+reglas.id+":"+reglas.descripcion+"<br>")
                                                            
-                                                        reglas.each{
+                                                         reglas.each{
                                                            println "Ejecutando sentencia de la regla"+"\n==================================="
                                                            println it.objAfe1+"."+it.attrAfe1+"="+it.valorAsignado1
-                                                           println "UPDATE $it.objAfe1 SET $it.attrAfe1 = $it.valorAsignado1 WHERE $it.objCond1.$it.attrCond1 $it.operadorCondicion $it.valorCondicion2"
-                                                            def query = "UPDATE $it.objAfe1 SET $it.attrAfe1 = $it.valorAsignado1 WHERE $it.objCond1.$it.attrCond1 $it.operadorCondicion $it.valorCondicion2" 
+
+                                                           
+                                                            def String query = ("UPDATE $it.objAfe1 SET $it.attrAfe1 = $it.valorAsignado1 WHERE $it.objCond1.$it.attrCond1 $it.operadorCondicion $it.valorCondicion2") 
+                                                            def query2 = ("UPDATE PRUEBAS SET PROCESABLE = 'COMPLEMENT' WHERE PRUEBAS.COSTO < 10000") 
+                                                            println(query)
+                                                            render(query+"<br>")
+                                                            render(query2+"<br>")
                                                             def sql = Sql.newInstance(dataSource)
-                                                            sql.execute(query)
+                                                            try {
+                                                                sql.execute(query)
+                                                                render("Query executado <br>")
+                                                            } catch (Exception e){
+                                                                render(e)
+                                                                render("<br>")
+                                                            }
+                                                            
                                                             println "\n"
                                                         }
                                                   }
