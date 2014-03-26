@@ -1,11 +1,14 @@
 package procesostest
 
-import org.springframework.dao.DataIntegrityViolationException
+import org.springframework.dao.DataIntegrityViolationException;
+import groovy.sql.Sql;
 
 class ReglaController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+    def dataSource
+    
     def index() {
         redirect(action: "list", params: params)
     }
@@ -20,14 +23,19 @@ class ReglaController {
     }
 
     def save() {
-        def reglaInstance = new Regla(params)
+        
+        sql = Sql.newInstance(dataSource)
+        sql.execute()
+        
+        println "UPDATE $params.objAfe1 SET $params.attrAfe1 $params.operador1 $params.valorAsignado1 $params.condicion $params.objCond1.$params.attrCond1 $params.operador1 $params.objCond2.$params.attrCond2$params.valorCondicion2 $params.operadorEnlace $params.condicionEnlazada"
+        /*def reglaInstance = new Regla(params)
         if (!reglaInstance.save(flush: true)) {
             render(view: "create", model: [reglaInstance: reglaInstance])
             return
         }
 
         flash.message = message(code: 'default.created.message', args: [message(code: 'regla.label', default: 'Regla'), reglaInstance.id])
-        redirect(action: "show", id: reglaInstance.id)
+        redirect(action: "show", id: reglaInstance.id)*/
     }
 
     def show(Long id) {
