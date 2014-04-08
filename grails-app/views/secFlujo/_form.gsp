@@ -6,14 +6,13 @@
 	</label>
 	<g:select id="fid" name="fid.id" from="${procesostest.Flujo.list()}" 
             optionKey="id" required="" value="${secFlujoInstance?.fid?.id}" class="many-to-one" 
-            onchange="${remoteFunction(action: 'getProcesos', params: '\'fid=\'+this.value', update:'secuencia')}" 
-            onfocus="${remoteFunction(action: 'getProcesos', params: '\'fid=\'+this.value', update:'secuencia')}"
+            onchange="${remoteFunction(action: 'getProcesos', params: '\'fid=\'+this.value', update:'secuencia2')}" 
             noSelection="['null':'- Seleccione un flujo de procesos -']"
         />
         
  </div>       
  
-<div id="secuencia">        
+<div id="secuencia2">        
        
 </div>
 

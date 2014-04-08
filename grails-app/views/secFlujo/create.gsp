@@ -4,17 +4,6 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'secFlujo.label', default: 'SecFlujo')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
-                
-                                     <script type="text/javascript">
-                                               var arraySecuencia = new Array();
-        
-                                               function SeleccionMultiple(select) {
-                                                        var selectedOption = select.options[select.selectedIndex];
-                                                        arraySecuencia.push(selectedOption.value)
-                                                        alert(arraySecuencia)
-                                                        document.getElementById('arregloSecuencia').value = arraySecuencia;
-                                               }
-                                     </script>
 	</head>
 	<body>
 		<a href="#create-secFlujo" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>

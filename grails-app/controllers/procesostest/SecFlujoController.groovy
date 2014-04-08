@@ -25,7 +25,6 @@ class SecFlujoController {
 
     @Transactional
     def save(SecFlujo secFlujoInstance) {
-        params.secuencia = params.arregloSecuencia
         if (secFlujoInstance == null) {
             notFound()
             return
