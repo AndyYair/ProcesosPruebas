@@ -15,19 +15,19 @@
                                                                             }
                                                                    });
                                                                   $( "#sortable" ).disableSelection();
+                                                                  
                                                 });
                                      </script>
 	</head>    
 
 <label for="secuencia">
 		<g:message code="secflujoflujo.secuencia.label" default="Procesos" />
-		<span class="required-indicator">*</span>
+		<span class="required-indicator">°</span>
 </label>
 
           <ul id="sortable">
                    <g:each status="i" var="l" in="${list}">
-                            
-                       <li  class="ui-state-default" id="${l.id}">${l}</li>
+                             <li  class="ui-state-default" id="${l.id}">${l}</li>
                    </g:each>
          </ul>
 
