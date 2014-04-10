@@ -1,6 +1,6 @@
 <%@ page import="procesostest.ReglaCalculo" %>
 <%@ page import="procesostest.Concepto_RC" %>
-
+<%@ page import="procesostest.Proceso" %>
 
 <div class="fieldcontain ${hasErrors(bean: reglaCalculoInstance, field: 'iniVig', 'error')} required">
 	<label for="iniVig">
@@ -20,6 +20,15 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: reglaCalculoInstance, field: 'status', 'error')} required">
+	<label for="status">
+		<g:message code="reglaCalculo.status.label" default="status" />
+	</label>
+	<g:textField name="status" value="${reglaCalculoInstance?.status}"/>
+
+</div>
+
+
 <div class="fieldcontain ${hasErrors(bean: reglaCalculoInstance, field: 'formulaConceptual', 'error')} ">
 	<label for="formulaConceptual">
 		<g:message code="reglaCalculo.formulaConceptual.label" default="Formula Conceptual" />
@@ -29,12 +38,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: reglaCalculoInstance, field: 'formulaExplicita', 'error')} ">
+<div id="formaExplicita" class="fieldcontain ${hasErrors(bean: reglaCalculoInstance, field: 'formulaExplicita', 'error')} ">
 	<label for="formulaExplicita">
 		<g:message code="reglaCalculo.formulaExplicita.label" default="Formula Explicita, sera determinada por los conceptos seleccionados" />
 		
 	</label>
-	<!--g:textField name="formulaExplicita" value="${reglaCalculoInstance?.formulaExplicita}"/-->
+	<g:textField name="formulaExplicita" value="${reglaCalculoInstance?.formulaExplicita}"/>
 
 </div>
 
@@ -64,7 +73,7 @@
 	</label>
         
         <g:select id="numConceptos" name="numConceptos" from="${1..100}" value='' noSelection="['null':'- Primero defina el numero de conceptos.-']"
-                  onchange="${remoteFunction(action: 'getConceptos', params: '\'cvalue=\'+this.value', update:'conceptos')}" 
+                  onchange="${remoteFunction(action: 'tratarConceptos', params: '\'cvalue=\'+this.value', update:'conceptos')}" 
          />
        
 
