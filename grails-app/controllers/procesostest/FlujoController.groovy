@@ -39,19 +39,22 @@ class FlujoController {
         def comp = Compania.executeQuery("SELECT nombcomp FROM Compania WHERE numeprom=$params.idpromotora AND numcomp = $params.idcompania")
         comp.each{
             nombrecompania = it
-        }
-        params.nomenclatura = params.idpromotora+'-'+nombrepromotora+params.idcompania+'-'+nombrecompania
-        println(params.nomenclatura)
+        }       
+        def nomenclatura
+        nomenclatura = params.idpromotora+'-'+nombrepromotora+params.idcompania+'-'+nombrecompania
+        flujoInstance.nomenclatura = nomenclatura
+        println(flujoInstance.nomenclatura)
+        
         
         if (flujoInstance == null) {
             notFound()
             return
         }
 
-        if (flujoInstance.hasErrors()) {
+        /*if (flujoInstance.hasErrors()) {
             respond flujoInstance.errors, view:'create'
             return
-        }
+        }*/
 
         flujoInstance.save flush:true
 
@@ -134,7 +137,7 @@ class FlujoController {
         def procesos
         def reglas
         
-         println("Entrando al metodo"+"\n------------------------------------------------")
+         println("Entrando al metodo FlujoController:common"+"\n------------------------------------------------")
          
         flujo = Flujo.executeQuery("SELECT id FROM Flujo WHERE idpromotora = $params.idpromotora AND idcompania = $params.idcompania")
         println("Flujo correspondiente: "+flujo)
@@ -175,7 +178,8 @@ class FlujoController {
                                                            println "Ejecutando sentencia de la regla"+"\n==================================="
                                                            println ""
                                                             
-                                                            String q = ("UPDATE $it.objAfe1 SET $it.attrAfe1 $it.operador1 $it.valorAsignado1 $it.condicion WHERE $it.objCond1.$it.attrCond1 $it.operadorCondicion $it.objCond2$it.attrCond2$it.valorCondicion2 $it.operadorEnlace ") 
+                                                            //String q = ("UPDATE $it.objAfe1 SET $it.attrAfe1 $it.operador1 $it.valorAsignado1 $it.condicion WHERE $it.objCond1.$it.attrCond1 $it.operadorCondicion $it.objCond2$it.attrCond2$it.valorCondicion2 $it.operadorEnlace ") 
+                                                            String q = it.sql 
                                                             String q2
                                 
                                                             while(it.operadorEnlace != null){
@@ -188,7 +192,7 @@ class FlujoController {
                                                             } 
                                                              
                                                            String query = q.replaceAll("null", '')
-
+                                                           query += ';'
                                                            println(query)
                                                             
                                                             

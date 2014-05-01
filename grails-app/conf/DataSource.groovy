@@ -23,7 +23,7 @@ environments {
             driverClassName = 'oracle.jdbc.OracleDriver'
             dbCreate = 'update'
             username = 'sunset'
-            password = 'sun010302sir'
+            password = 'SUN010302SIR'
             //url = 'jdbc:oracle:thin:@10.194.15.203:1521:SUNSET'
             url = 'jdbc:oracle:thin:@10.194.18.59:1521:SUNSET'
             //readOnly = false

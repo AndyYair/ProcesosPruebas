@@ -30,10 +30,10 @@ class SecFlujoController {
             return
         }
 
-        if (secFlujoInstance.hasErrors()) {
-            respond secFlujoInstance.errors, view:'create'
-            return
-        }
+//        if (secFlujoInstance.hasErrors()) {
+//            respond secFlujoInstance.errors, view:'create'
+//            return
+//        }
 
         secFlujoInstance.save flush:true
 

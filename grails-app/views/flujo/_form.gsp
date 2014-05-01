@@ -43,5 +43,6 @@
 		
 	</label>
 	<g:textField name="status" value="${flujoInstance?.status}"/>
+        <!--g:hiddenField name="nomenclatura" value="${flujoInstance?.nomenclatura}"/-->
 </div>
 

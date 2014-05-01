@@ -103,22 +103,30 @@ class ReglaController {
     }
     
          def common(){
+            println("Entrando al metodo ReglaController:common"+"\n------------------------------------------------")
+            //String q = ("UPDATE $params.objAfe1 SET $params.attrAfe1 $params.operador1 $params.valorAsignado1 $params.condicion WHERE $params.objCond1.$params.attrCond1 $params.operadorCondicion $params.objCond2.$params.attrCond2$params.valorCondicion2 $params.operadorEnlace ") 
+            String q = ("UPDATE $params.objAfe1 \n\
+                        SET $params.attrAfe1 $params.operador1 $params.valorAsignado1 \n\
+                        WHERE $params.objCond1.$params.attrCond1 $params.valorCondicion1  \n\
+                        $params.objCond2.$params.attrCond2$params.valorCondicion2 $params.operadorEnlace ") 
+            
+            println("String conformado: "+q)
+//            String q2
+//            if(params.operadorEnlace){
+//                            while(params.operadorEnlace != null){
+//                                    //println "Entrando al metodo de comprobacion de reglas"
+//                                    Regla rid = Regla.get(params.condicionEnlazada)
+//                                    q2 = ("$rid.objCond1.$rid.attrCond1 $rid.operadorCondicion $rid.objCond2$rid.attrCond2$rid.valorCondicion2 $rid.operadorEnlace ")
+//                                    q+=q2
+//                                    params.operadorEnlace = rid.operadorEnlace
+//                                    params.condicionEnlazada = rid.condicionEnlazada
+//                            } 
+//            }
 
-                                                            String q = ("UPDATE $params.objAfe1 SET $params.attrAfe1 $params.operador1 $params.valorAsignado1 $params.condicion WHERE $params.objCond1.$params.attrCond1 $params.operadorCondicion $params.objCond2.$params.attrCond2$params.valorCondicion2 $params.operadorEnlace ") 
-                                                            String q2
-                                                            if(params.operadorEnlace){
-                                                                            while(params.operadorEnlace != null){
-                                                                                    //println "Entrando al metodo de comprobacion de reglas"
-                                                                                    Regla rid = Regla.get(params.condicionEnlazada)
-                                                                                    q2 = ("$rid.objCond1.$rid.attrCond1 $rid.operadorCondicion $rid.objCond2$rid.attrCond2$rid.valorCondicion2 $rid.operadorEnlace ")
-                                                                                    q+=q2
-                                                                                    params.operadorEnlace = rid.operadorEnlace
-                                                                                    params.condicionEnlazada = rid.condicionEnlazada
-                                                                            } 
-                                                            }
-                                                            
-                                                             
-                                                           String query = q.replaceAll("null", '')
-                                                           render(template: "queryresult",  model:[resquery: query])                                                              
+
+           String query = q.replaceAll("null", '')
+           String regex = '  \\.  '
+           query = q.replaceAll(regex, '')
+           render(template: "queryresult",  model:[resquery: query])                                                              
           }
 }
